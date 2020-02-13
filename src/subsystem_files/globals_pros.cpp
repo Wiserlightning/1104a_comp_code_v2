@@ -1,5 +1,5 @@
 //Include necessary headers
-#include "subsystem_headers/globals.hpp"
+#include "subsystem_headers/globals_pros.hpp"
 
 //Declare namespace
 using namespace pros;
