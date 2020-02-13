@@ -24,9 +24,9 @@ void arm_op(void) {
     if (master_controller.get_digital(BUTTON_L1) || (master_controller.get_digital(BUTTON_L2))) {
         set_arm_vel(200 * (master_controller.get_digital(BUTTON_L1) - master_controller.get_digital(BUTTON_L2)));
     } else if (master_controller.get_digital(BUTTON_RIGHT)) {
-        set_arm_aut(ARM_TOW1, 200); //we have to still define ARM_TOW1
+        set_arm_aut(ARM_TOWER_1, 200); //we have to still define ARM_TOW1
     } else if (master_controller.get_digital(BUTTON_UP)) {
-        set_arm_aut(ARM_TOW2, 200); //we have to still define ARM_TOW2
+        set_arm_aut(ARM_TOWER_2, 200); //we have to still define ARM_TOW2
     } else {
         set_arm_vel(0);
     }   
