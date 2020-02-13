@@ -1,22 +1,14 @@
-<<<<<<< HEAD
-//Include necessary headers
-#include "api.h"
+//Include necessary libraries
+#include <string>
 
-=======
->>>>>>> upstream/master
 //Start of header guard
 #ifndef DRIVE_HPP
 #define DRIVE_HPP
 
-<<<<<<< HEAD
 //Define drive functions
 extern void drive_op(void);
-=======
-//Declare function prototypes
-extern void drive_op(void);
-extern void drive_aut_simple();
-extern void drive_aut_path();
->>>>>>> upstream/master
+extern void drive_aut_simple(std::string drive_aut_mode, float drive_aut_value, bool drive_aut_rev, bool drive_aut_async);
+extern void drive_aut_path(std::string drive_aut_path, bool drive_aut_rev, bool drive_aut_mir, bool drive_aut_async);
 
 //End of header guard
 #endif
