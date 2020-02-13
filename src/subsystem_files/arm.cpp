@@ -1,5 +1,5 @@
-#include "subsystem_headers\globals.hpp"
-#include "subsystem_headers\two_bar.hpp"
+#include "subsystem_headers\globals_pros.hpp"
+#include "subsystem_headers\arm.hpp"
 #include "subsystem_headers\tray.hpp"
 
 using namespace pros;
@@ -24,12 +24,12 @@ void arm_op(void) {
     if (master_controller.get_digital(BUTTON_L1) || (master_controller.get_digital(BUTTON_L2))) {
         set_arm_vel(200 * (master_controller.get_digital(BUTTON_L1) - master_controller.get_digital(BUTTON_L2)));
     } else if (master_controller.get_digital(BUTTON_RIGHT)) {
-        set_arm_aut(ARM_TOW1, 200);
+        set_arm_aut(ARM_TOW1, 200); //we have to still define ARM_TOW1
     } else if (master_controller.get_digital(BUTTON_UP)) {
-        set_arm_aut(ARM_TOW2, 200);
+        set_arm_aut(ARM_TOW2, 200); //we have to still define ARM_TOW2
     } else {
         set_arm_vel(0);
-    }
+    }   
 }
 
 void arm_aut(float dist_arm, int vel_arm, bool async_arm) {
