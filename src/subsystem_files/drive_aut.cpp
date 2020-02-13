@@ -9,3 +9,7 @@ auto okapi_drive_chassis = ChassisControllerBuilder()
     .build();
 
 auto okapi_chassis_controller = AsyncMotionProfileControllerBuilder()
+    .withOutput(okapi_drive_chassis)
+    .withLimits({1.0, 2.0, 10.0})
+    .build();
+
