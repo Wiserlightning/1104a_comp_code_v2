@@ -1,9 +1,9 @@
 #include "main.h"
 
-#ifndef TRAY_HPP
-#define TRAY_HPP
+#ifndef ANGLER_HPP
+#define ANGLER_HPP
 
-extern void tray_op(void);
-extern void tray_aut(float dist_tray, int vel_tray, bool async_tray);
+extern void angler_op(void);
+extern void angler_aut(float dist_tray, int vel_tray, bool async_tray);
 
 #endif

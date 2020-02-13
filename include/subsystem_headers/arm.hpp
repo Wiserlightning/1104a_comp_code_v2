@@ -1,7 +1,7 @@
 #include "main.h"
 
-#ifndef TWO_BAR_H
-#define TWO_BAR_H
+#ifndef ARM_HPP
+#define ARM_HPP
 
 extern void arm_op(void);
 extern void arm_aut(float dist_twbr, int vel_twbr, bool async_twbr);
