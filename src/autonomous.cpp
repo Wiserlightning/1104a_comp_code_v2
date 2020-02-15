@@ -21,8 +21,8 @@ void auton_blue(void) {
 }
 
 void auton_one_point(void) {
-    drive_aut_path("ONE_POINT_1", true, false, false);
-    drive_aut_path("ONE_POINT_1", false, false, false);
+    drive_aut_simple("DRIVE", -24, false);
+    drive_aut_simple("DRIVE", 24, false);
     tray_deploy();
 }
 
@@ -31,7 +31,12 @@ void auton_skills(void) {
 }
 
 void auton_test(void) {
-
+    drive_aut_path("TEST_AUT_CURVE", false, false, false);
+    drive_aut_path("TEST_AUT_CURVE", true, false, false);
+    drive_aut_path("TEST_AUT_DRIVE", false, false, false);
+    drive_aut_path("TEST_AUT_DRIVE", true, false, false);
+    drive_aut_path("TEST_AUT_PIVOT", false, false, false);
+    drive_aut_path("TEST_AUT_PIVOT", true, false, false);
 }
 
 //Main callback for autonomous routine

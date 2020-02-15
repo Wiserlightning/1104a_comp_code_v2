@@ -6,17 +6,17 @@ using namespace okapi;
 
 //Controller declarations
 auto okapi_drive_chassis = ChassisControllerBuilder()
-    .withMotors({19, 20}, {-9, -10})
+    .withMotors({19, 20}, {9, 10})
     .withDimensions(Motor::gearset::green, {{4_in, 10_in}, imev5GreenTPR})
     .build();
 
 auto okapi_chassis_controller = AsyncMotionProfileControllerBuilder()
     .withOutput(okapi_drive_chassis)
-    .withLimits({1.0, 2.0, 10.0})
+    .withLimits({0.5, 1.0, 5.0})
     .buildMotionProfileController();
 
 //Main functions
-void drive_aut_simple(std::string drive_aut_mode, float drive_aut_value, bool drive_aut_rev, bool drive_aut_async) {
+void drive_aut_simple(std::string drive_aut_mode, float drive_aut_value, bool drive_aut_async) {
     if (drive_aut_mode == "DRIVE") {
         okapi_drive_chassis->moveDistanceAsync(drive_aut_value * 1_in);
     } else if (drive_aut_mode == "TURN") {
@@ -41,14 +41,24 @@ void drive_aut_gen_paths(void) {
     } else if (sel_auton == possible_autons.at(1)) {
 
     } else if (sel_auton == possible_autons.at(2)) {
-        okapi_chassis_controller->generatePath(
-            {{0_ft, 0_ft, 0_deg},
-            {2_ft, 0_ft, 0_deg}},
-            "ONE_POINT_1"
-        );
+
     } else if (sel_auton == possible_autons.at(3)) {
 
     } else if (sel_auton == possible_autons.at(4)) {
-        
+        okapi_chassis_controller->generatePath(
+            {{0_ft, 0_ft, 0_deg},
+            {2_ft, 2_ft, 90_deg}},
+            "TEST_AUT_CURVE"
+        );
+        okapi_chassis_controller->generatePath(
+            {{0_ft, 0_ft, 0_deg},
+            {2_ft, 0_ft, 0_deg}},
+            "TEST_AUT_DRIVE"
+        );
+        okapi_chassis_controller->generatePath(
+            {{0_ft, 0_ft, 0_deg},
+            {0_ft, 0_ft, 90_deg}},
+            "TEST_AUT_PIVOT"
+        );
     }
 }
