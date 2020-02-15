@@ -2,7 +2,7 @@
 #include "subsystem_headers\globals.hpp"
 #include "subsystem_headers\arm.hpp"
 
-int arm_mode;
+unsigned arm_mode;
 
 using namespace pros;
 
@@ -16,7 +16,9 @@ void arm_op(void) {
     } else if (master_controller.get_digital(BUTTON_UP)) {
         arm_mode = 2;
     } else {
-        arm.move_velocity(0);
+        if (arm_mode = 0) {
+            arm.move_velocity(0);
+        }
     }
 
     switch (arm_mode) {
@@ -25,15 +27,11 @@ void arm_op(void) {
             if (arm.get_position() < (ARM_TOWER_1 + 5) && (arm.get_position() > (ARM_TOWER_1 - 5))) {
                 arm_mode = 0;
             }
-            break;
         case 2:
             arm.move_absolute(ARM_TOWER_2, 200);
             if (arm.get_position() < (ARM_TOWER_2 + 5) && (arm.get_position() > (ARM_TOWER_2 - 5))) {
                 arm_mode = 0;
             }
-            break;
-        default:
-            break;
     }
 }
 
