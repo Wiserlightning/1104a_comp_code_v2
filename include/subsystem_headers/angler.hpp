@@ -4,6 +4,6 @@
 #define ANGLER_HPP
 
 extern void angler_op(void);
-extern void angler_aut(float dist_tray, int vel_tray, bool async_tray);
+extern void angler_aut(int stack_angler);
 
 #endif
