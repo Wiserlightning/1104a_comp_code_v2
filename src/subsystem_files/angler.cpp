@@ -22,12 +22,23 @@ void angler_op(void) {
 }
 
 
-void angler_aut(float dist_angler, int vel_angler, bool async_angler) {
+void angler_aut(int stack_angler) {
     angler.set_brake_mode(BRAKE_HOLD);
-    angler.move_absolute(dist_angler, vel_angler);
-    if (async_angler == false) {
-        while (!(angler.get_position() < (dist_angler + 5) && (angler.get_position() > (dist_angler - 5)))) {
-            delay(1);
-        }
-    }
+    switch (stack_angler) {
+        case 0:
+            angler.move_velocity(0);
+            break;
+        case 1:
+            while (!(angler.get_position() < (ANGLER_STACK + 5) && (angler.get_position() > (ANGLER_STACK - 5)))) {
+                angler.move_velocity(std::ceil((-0.018 * angler.get_position()) + 60));
+                delay(1);
+            }
+            break;
+        case 2:
+            while (!(angler.get_position() < (ANGLER_STACK + 5) && (angler.get_position() > (ANGLER_STACK - 5)))) {
+                angler.move_velocity(-100);
+                delay(1);
+            }
+            break;
+    };
 }

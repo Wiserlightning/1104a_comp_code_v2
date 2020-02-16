@@ -10,7 +10,7 @@ unsigned cur_obj;
 //Helper Functions
 void auton_selection(void) {
     cur_obj = 0;
-    pros::lcd::print(0, "Auton Selector v1.12.2snap_234f2");
+    pros::lcd::print(0, "Auton Selector v2.0");
     pros::lcd::print(1, "[LEFT] and [RIGHT] to scroll.");
     pros::lcd::print(2, "[CENTER] to select.");
     while (true) {
@@ -45,7 +45,9 @@ void auton_selection(void) {
         pros::delay(5);
     }
 
-    pros::lcd::print(4, "FINAL AUTON: %s", sel_auton);
+    pros::lcd::print(3, "FINAL AUTON: %s", sel_auton);
+    pros::lcd::print(4, "Paths will now generate.");
+    pros::lcd::print(5, "Allow 10 seconds for pathgen.");
     pros::delay(2000);
     pros::delay(1000);
     pros::lcd::shutdown();
@@ -69,7 +71,6 @@ void pre_init(void) {
     pros::lcd::print(0, "ZEROES SET.");
     pros::lcd::print(1, "PRE-INIT COMPLETE");
     pros::delay(1000);
-    pros::lcd::clear();
 }
 
 //Main callback for initialization
