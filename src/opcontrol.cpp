@@ -12,7 +12,7 @@ void opcontrol(void) {
         angler_op();
         arm_op();
         drive_op();
-
+        intake_op();
         pros::delay(5);
     }
 }

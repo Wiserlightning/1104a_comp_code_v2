@@ -17,8 +17,8 @@ Motor intake_left(11, GREEN_CARTRIDGE, false, ENCODER_TIC);
 Motor intake_right(1, GREEN_CARTRIDGE, true, ENCODER_TIC);
 
 /*Linkages*/
-Motor arm(2, GREEN_CARTRIDGE, false, ENCODER_TIC);
-Motor tray(8, RED_CARTRIDGE, true, ENCODER_TIC);
+Motor arm(2, GREEN_CARTRIDGE, true, ENCODER_TIC);
+Motor angler(8, RED_CARTRIDGE, true, ENCODER_TIC);
 
 /*Controllers*/
 Controller master_controller(CONTROL_MASTER);

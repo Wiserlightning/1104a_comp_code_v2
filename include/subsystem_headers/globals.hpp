@@ -1,8 +1,15 @@
+//Include necessary libraries
+#include <string>
+#include <vector>
+
 //Start of header guard
 #ifndef GLOBALS_HPP
 #define GLOBALS_HPP
 
 //Initialization related values
+extern const std::vector<std::string> possible_autons;
+extern const unsigned num_of_autons;
+extern std::string sel_auton;
 
 //Autonomous related values
 
